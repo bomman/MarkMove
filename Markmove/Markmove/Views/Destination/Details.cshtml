@@ -1,0 +1,29 @@
+﻿@model Markmove.Models.Destination
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container">
+    <article>
+        <header>
+            <h2>@Model.Name</h2>
+        </header>
+        <p>
+            @Model.Description
+        </p>
+        <small class="#">
+            -- country @Model.Country
+        </small>
+        <footer class="pull-right">
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Edit", "Edit", "Destination", new {@id = Model.Id}, new {@class = "btn btn-success btn-xs"})
+                @Html.ActionLink("Delete", "Delete", "Destination", new {@id = Model.Id}, new {@class = "btn btn-danger btn-xs"})
+            }
+
+            @Html.ActionLink("Back", "Index", "Destination", null, new { @class = "btn btn-default btn-xs" })
+        </footer>
+    </article>
+</div>
+<hr/>
